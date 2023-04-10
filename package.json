@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "concurrently \"npm run watch\" \"sleep 3 && npm run start\" --wait",
     "watch": "tsc -w",
+    "build": "npm run build:ts && electron-packager . --out=build",
+    "build:windows": "npm run build:ts && electron-packager . --platform=win32 --arch=x64 --out=build",
     "build:ts": "tsc",
     "start": "electronmon .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +22,7 @@
     "chokidar": "^3.5.3",
     "concurrently": "^8.0.1",
     "electron": "^24.0.0",
+    "electron-packager": "^17.1.1",
     "electronmon": "^2.0.2",
     "socket.io": "^4.6.1",
     "typescript": "^5.0.4",
